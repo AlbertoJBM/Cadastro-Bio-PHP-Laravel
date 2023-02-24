@@ -18,23 +18,24 @@
 <form method="POST" action="cadastro.php">
      <!-- nombre -->
     <label>Foto: </label>
-    <input type="text" name="foto" placeholder="Digite o nome completo"><br><br>
+    <input type="text" name="foto" placeholder="Digite url da imagen"><br><br>
      <!-- email -->
     <label>Nome: </label>
-    <input type="text" name="nome" placeholder="Digite o seu melhor e-mail"><br><br>
+    <input type="text" name="nome" placeholder="Digite o seu nome"><br><br>
     <!-- idade -->
     <label>idade: </label>
-    <input type="int" name="idade" placeholder="Digite o nome completo"><br><br>
+    <input type="int" name="idade" placeholder="Digite a Idade"><br><br>
     <!-- profissao -->
     <label>profissao: </label>
-    <input type="text" name="profissao" placeholder="Digite o nome completo"><br><br>
+    <input type="text" name="profissao" placeholder="Digite a profesao"><br><br>
     <!-- resumen -->
     <label>resumen: </label>
-    <input type="text" name="resumen" placeholder="Digite o nome completo"><br><br>
+    <input type="text" name="resumen" placeholder="Digite o resumo"><br><br>
 
 
 
     <!-- la forma de hacer un botton  -->
     <input type="submit" value="Cadastrar">
+    <input type="submit" value="Lista">
 </form>
 @endsection
