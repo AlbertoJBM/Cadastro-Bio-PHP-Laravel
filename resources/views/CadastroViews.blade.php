@@ -18,7 +18,7 @@
 
     <h1>CadastrarOlimpo Usuário</h1>
     <!--
-     <?php
+     ?php
         if(isset($_SESSION['msg'])){
             echo $_SESSION['msg'];
             unset($_SESSION['msg']);
@@ -27,7 +27,10 @@
 -->
 
 
-<form method="POST" action="cadastro.php">
+<form  method="POST" action="{{route('cadastro.store')}}">
+
+    @csrf
+    <br><br>
        <!-- cpf -->
        <label>cpf: </label>
        <input type="int" name="cpf" placeholder="Digite a cpf"><br><br>
@@ -42,11 +45,11 @@
     <label>idade: </label>
     <input type="int" name="idade" placeholder="Digite a Idade"><br><br>
     <!-- profissao -->
-    <label>profissao: </label>
-    <input type="text" name="profissao" placeholder="Digite a profesao"><br><br>
+    <label>profesao: </label>
+    <input type="text" name="profesao" placeholder="Digite a profesao"><br><br>
     <!-- resumen -->
     <label>resumen: </label>
-    <input type="text" name="resumen" placeholder="Digite o resumo"><br><br>
+    <input type="text" name="resumo" placeholder="Digite o resumo"><br><br>
 
 
 

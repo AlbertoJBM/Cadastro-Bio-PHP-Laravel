@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 Route::get('bemvido', HomeController::class);
 
-Route::controller(CadastrarController::class)->group(function(){
+//Route::controller(CadastrarController::class)->group(function(/*$show*/){
 
     /*/como estamos agrupando puedo liminar el
      controlador de la linea de codigo ejemplo
@@ -27,7 +27,8 @@ Route::controller(CadastrarController::class)->group(function(){
      */
     //Route::get('home',[CadastrarController::class, 'index']);
 
-Route::get('home', 'index');
-Route::get('cadastro', 'create');
-Route::get('cadastro/{show}', 'show');
-});
+Route::get('home',[CadastrarController::class, 'index'])->name('cadastros.index');
+Route::get('cadastro',[CadastrarController::class, 'create'])->name('cadastros.create');;
+Route::post('cadastro',[CadastrarController::class, 'store'])->name('cadastros.store');
+Route::get('cadastro/{show}',[CadastrarController::class, 'show'])->name('cadastros.show');
+//});
