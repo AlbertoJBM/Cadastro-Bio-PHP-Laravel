@@ -15,9 +15,9 @@ class CadastrarController extends Controller
         //return "bem-vido ao index do cadastro";
 
         // asi se sacan todos los registros de golpe
-         $cadastros = cadastro::all();
+         //$cadastros = cadastro::all();
         // asi se acomodan de manera paginado
-        //$cadastros = cadastro::paginate();
+        $cadastros = cadastro::orderBy('id','desc')->paginate();
 
         //verificar contenido
         //return $cadastros;
@@ -68,10 +68,34 @@ public function store(Request $request){
 
 
 
-    public function show($id){
-        $cadastro =  cadastro::find($id);
+    public function show(cadastro $cadastro){
+
 
         return view('show', compact('cadastro'));
 //return $cadastro;
+    }
+
+    public function edit(cadastro $cadastro){
+      return View('cadastroEdit', compact('cadastro'));
+    }
+    public function update(Request $request,cadastro $cadastro){
+
+    $cadastro->cpf= $request->cpf;//->primary();//intero
+    //---------------------------
+    //public $foto="url ramdom";//modificar solo ejemplo
+    $cadastro->foto= $request->foto;       //------------------------
+    //
+    $cadastro->nome= $request->nome;
+    //
+    $cadastro->idade= $request->idade;
+    //
+    $cadastro->profesao= $request->profesao;
+    //------
+    $cadastro->resumo= $request->resumo;
+
+
+//SALVARLO
+$cadastro->save();
+return redirect()->route('cadastros.index');
     }
 }

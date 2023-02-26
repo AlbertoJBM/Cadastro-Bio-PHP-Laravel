@@ -28,7 +28,7 @@
 
 
   <a href="{{route('welcome.welcome')}}">Inicio</a>
-    {{--$cadastro->links()--}}
+    <!--$cadastro->links();->
 
 @endsection
 
