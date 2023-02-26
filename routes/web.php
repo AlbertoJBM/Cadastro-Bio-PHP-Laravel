@@ -13,11 +13,16 @@ use App\Http\Controllers\CadastrarController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/',[CadastrarController::class, 'welcome'])->name('welcome.welcome');
+/*
 
 Route::get('/', function () {
     return view('welcome');
+    // modificar para una pagina inicial de verdad
 });
-Route::get('bemvido', HomeController::class);
+
+*/
+//Route::get('bemvido', HomeController::class);
 
 //Route::controller(CadastrarController::class)->group(function(/*$show*/){
 
@@ -30,5 +35,5 @@ Route::get('bemvido', HomeController::class);
 Route::get('home',[CadastrarController::class, 'index'])->name('cadastros.index');
 Route::get('cadastro',[CadastrarController::class, 'create'])->name('cadastros.create');;
 Route::post('cadastro',[CadastrarController::class, 'store'])->name('cadastros.store');
-Route::get('cadastro/{show}',[CadastrarController::class, 'show'])->name('cadastros.show');
+Route::get('cadastro/{id}',[CadastrarController::class, 'show'])->name('cadastros.show');
 //});

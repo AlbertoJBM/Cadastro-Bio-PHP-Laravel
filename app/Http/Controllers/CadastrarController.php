@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class CadastrarController extends Controller
 {
+
+    public function welcome(){
+        return view('welcome');
+    }
     public function index(){
         //return "bem-vido ao index do cadastro";
 
@@ -24,7 +28,7 @@ class CadastrarController extends Controller
     }
     public function create(){
        // return "bem-vido ao Cadatratrator";
-        return view('cadastros.create');
+        return view('CadastroViews');
 
     }
 
@@ -51,7 +55,8 @@ public function store(Request $request){
     //SALVARLO
         $cadastro->save();
         //no funciona el return
-            return redirect()->route('bemvido'/*,$cadastro*/);
+        // ya funciona fuck yea!!
+            return redirect()->route('cadastros.index'/*,$cadastro*/);
         //revisar
 
 //revisar qeu guarda
@@ -63,10 +68,10 @@ public function store(Request $request){
 
 
 
-   // public function show($cadastro){
-      //  $cadastro =  cadastro::find($id);
+    public function show($id){
+        $cadastro =  cadastro::find($id);
 
-        //return view('indexViews', compact('cadastro'));
+        return view('show', compact('cadastro'));
 //return $cadastro;
-   // }
+    }
 }

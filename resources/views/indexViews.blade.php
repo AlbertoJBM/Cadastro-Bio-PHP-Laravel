@@ -13,16 +13,21 @@
 @foreach ($cadastros as $cadastro)
     <li>
 
-        {{$cadastro->nome}}
+        {{-- {{$cadastro->nome}} --}}
 
-        {{-- <a href="{{route('cadastro.show', $cadastr->nome)}}">{{$cadastr->nome}}</a> --}}
+         <a href="{{route('cadastros.show', $cadastro->id)}}">{{$cadastro->nome}}</a>
          {{--  route('cadastros.list', $cadastr->nome)--}}
         {{--$cadastr->nome--}}
 
     </li>
 @endforeach
     </ul>
+    <br>
+    <br>
+    <br>
 
+
+  <a href="{{route('welcome.welcome')}}">Inicio</a>
     {{--$cadastro->links()--}}
 
 @endsection
