@@ -39,3 +39,4 @@ Route::get('cadastro/{cadastro}',[CadastrarController::class, 'show'])->name('ca
 //});
 Route::get('cadastros/{cadastro}/edit',[CadastrarController::class, 'edit'])->name('cadastros.edit');
 Route::put('cadastros/{cadastro}',[CadastrarController::class, 'update'])->name('cadastros.update');
+Route::delete('cadastros/{cadastro}',[CadastrarController::class, 'destroy'])->name('cadastros.destroy');

@@ -25,6 +25,10 @@
     <br>
     <br>
 
-
+    <form action="{{route('cadastros.destroy', $cadastro)}}" methop="POST">
+        @csrf
+        @method('delete')
+        <button type="submit">Eliminar </button>
+    </form>
   <a href="{{route('welcome.welcome')}}">Inicio</a>
 @endsection

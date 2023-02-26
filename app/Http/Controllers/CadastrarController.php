@@ -98,4 +98,10 @@ public function store(Request $request){
 $cadastro->save();
 return redirect()->route('cadastros.index');
     }
+
+    public function destroy(cadastro $cadastro){
+        //@//se que falta algo
+        $cadastro->delete();
+       return View('cadastro.idex', compact('cadastro'));
+      }
 }
