@@ -10,6 +10,7 @@
 
     <h1>CadastrarOlimpo Usuário</h1>
     <h2>pagina de inicio</h2>
+    <h3>texto de test</h3>
 
     <a href="{{route('cadastros.create')}}">Crear Cadastro</a>
     <br>
