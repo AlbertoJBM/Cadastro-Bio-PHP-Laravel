@@ -9,8 +9,15 @@
   <br>
   <a href="{{route('cadastros.edit',$cadastro)}}">Editar o Cadastro</a>
   <br>
+  <p><strong>Foto  </strong></p>
+  <body>
+    <img  src="http://localhost/prueba/public{{$cadastro->foto}}" style="width: 200px">
+  </body>
+  <br>
   <p><strong>CPF  </strong> {{$cadastro->cpf}}</p>
   <br>
+  <p><strong>Foto  </strong></p>
+
   <p><strong>Foto  </strong> {{$cadastro->foto}}</p>
   <br>
   <p><strong>Nome  </strong> {{$cadastro->nome}}</p>
@@ -25,10 +32,10 @@
     <br>
     <br>
 
-    <form action="{{route('cadastros.destroy', $cadastro)}}" methop="POST">
+    <form action="{{route('cadastros.destroy', $cadastro)}}" method="POST">
         @csrf
         @method('delete')
-        <button type="submit">Eliminar </button>
+        <input type="submit" value="Eliminar">
     </form>
   <a href="{{route('welcome.welcome')}}">Inicio</a>
 @endsection

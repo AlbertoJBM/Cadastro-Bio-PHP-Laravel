@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\cadastro;
 use Illuminate\Http\Request;
+use Illuminate\support\Facades\Storage;
+use League\CommonMark\Extension\CommonMark\Node\Inline\Strong;
+use App\File;
+
 
 class CadastrarController extends Controller
 {
@@ -36,12 +40,28 @@ class CadastrarController extends Controller
 
 public function store(Request $request){
             //return $request->all();
+            //para forzar a la variable a gaurdarse donde se puede ver que es store
+            $imagenes = $request->file('foto')->store('public');
+            $url = Storage::url($imagenes);
+            //para forzar a la variable a gaurdarse donde se puede ver que es store
             $cadastro = new cadastro();
-
+/*
+        inicio de test que se vea una imagen
+*/
+   /* $request->validate([
+        'file' => 'equired|image|max:2048'
+    ]);
+    */
+/*
+        inicio de test que se vea una imagen
+*/
     $cadastro->cpf= $request->cpf;//->primary();//intero
             //---------------------------
     //public $foto="url ramdom";//modificar solo ejemplo
-    $cadastro->foto= $request->foto;       //------------------------
+    //$cadastro->foto= $request->foto;       //------------------------
+//que complicado para poder ver esto
+
+    $cadastro->foto= $url;
     //
     $cadastro->nome= $request->nome;
     //
@@ -55,6 +75,7 @@ public function store(Request $request){
     //SALVARLO
         $cadastro->save();
         //no funciona el return
+        // $request->file('foto')->store('public');
         // ya funciona fuck yea!!
             return redirect()->route('cadastros.index'/*,$cadastro*/);
         //revisar
@@ -80,10 +101,14 @@ public function store(Request $request){
     }
     public function update(Request $request,cadastro $cadastro){
 
+        $imagenes = $request->file('foto')->store('public');
+        $url = Storage::url($imagenes);
+
+
     $cadastro->cpf= $request->cpf;//->primary();//intero
     //---------------------------
     //public $foto="url ramdom";//modificar solo ejemplo
-    $cadastro->foto= $request->foto;       //------------------------
+    $cadastro->foto= $url;       //------------------------
     //
     $cadastro->nome= $request->nome;
     //
@@ -101,7 +126,8 @@ return redirect()->route('cadastros.index');
 
     public function destroy(cadastro $cadastro){
         //@//se que falta algo
+       // echo ("porq no deletas");
         $cadastro->delete();
-       return View('cadastro.idex', compact('cadastro'));
+        return redirect()->route('cadastros.index');
       }
 }

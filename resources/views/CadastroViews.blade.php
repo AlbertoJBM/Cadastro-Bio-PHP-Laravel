@@ -20,7 +20,7 @@
 
 
 
-<form  method="POST" action="{{route('cadastros.store')}}">
+<form  method="POST" action="{{route('cadastros.store')}}" enctype="multipart/form-data">
 
     @csrf
     <br><br>
@@ -30,7 +30,10 @@
 
     <!-- nombre -->
     <label>Foto: </label><br>
-    <input type="text" name="foto" placeholder="Digite url da imagen"><br><br>
+    <input type="file" name="foto" placeholder="Digite url da imagen" accept="image/*"><br><br>
+            @error('file')
+                <small class= text-danger>   Texto de error   </small>
+            @enderror
      <!-- email -->
     <label>Nome: </label><br>
     <input type="text" name="nome" placeholder="Digite o seu nome"><br><br>

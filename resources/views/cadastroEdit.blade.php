@@ -9,7 +9,7 @@
 
 
 
-<form  method="POST" action="{{route('cadastros.update',$cadastro)}}">
+<form  method="POST" action="{{route('cadastros.update',$cadastro)}}" enctype="multipart/form-data">
 
     @csrf
     @method('put')
@@ -20,7 +20,7 @@
     </label>
     <!-- nombre -->
     <label>Foto: </label><br>
-    <input type="text" name="foto" value="{{$cadastro->foto}}"><br><br>
+    <input type="file" name="foto" value="{{$cadastro->foto}}"><br><br>
      <!-- email -->
     <label>Nome: </label><br>
     <input type="text" name="nome" value="{{$cadastro->nome}}"><br><br>

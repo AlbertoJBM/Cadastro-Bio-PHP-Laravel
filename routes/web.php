@@ -37,6 +37,6 @@ Route::get('cadastro',[CadastrarController::class, 'create'])->name('cadastros.c
 Route::post('cadastro',[CadastrarController::class, 'store'])->name('cadastros.store');
 Route::get('cadastro/{cadastro}',[CadastrarController::class, 'show'])->name('cadastros.show');
 //});
-Route::get('cadastros/{cadastro}/edit',[CadastrarController::class, 'edit'])->name('cadastros.edit');
-Route::put('cadastros/{cadastro}',[CadastrarController::class, 'update'])->name('cadastros.update');
-Route::delete('cadastros/{cadastro}',[CadastrarController::class, 'destroy'])->name('cadastros.destroy');
+Route::get('cadastro/{cadastro}/edit',[CadastrarController::class, 'edit'])->name('cadastros.edit');
+Route::put('cadastro/{cadastro}',[CadastrarController::class, 'update'])->name('cadastros.update');
+Route::delete('cadastro/{cadastro}',[CadastrarController::class, 'destroy'])->name('cadastros.destroy');
